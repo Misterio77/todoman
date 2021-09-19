@@ -1,5 +1,6 @@
 image: archlinux
 packages:
+  - python-build
   - python-pip
   - python-tox
   - python-wheel
@@ -33,5 +34,5 @@ tasks:
       git describe --exact-match --tags || complete-build
   - publish: |
       cd todoman
-      python setup.py sdist bdist_wheel
+      python -m build
       twine upload dist/*
